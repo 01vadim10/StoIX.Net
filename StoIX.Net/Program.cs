@@ -20,10 +20,14 @@ namespace StoIX.Net
 			DataSet ds = new DataSet();
 			IList<string> listElements = new List<string>();
 
-			using (var mmf = MemoryMappedFile.CreateFromFile(@"Galaktika.HCM.Demo2.HAT.ClearVersion.xml", FileMode.Open, "ImgA"))
+			using (StreamReader sr = new StreamReader(@"Galaktika.HCM.Demo2.HAT.ClearVersion.xml"))
 			{
-				var accessor = mmf.CreateViewAccessor();
-//				Regex.
+				Regex pattern = new Regex(@"<xs:element name=""(\w+)"">");
+
+				while (Regex.IsMatch(sr.ReadLine(), "<xs"))
+				{
+					
+				}
 			}
 
 			if (args.Length > 0)
